@@ -36,12 +36,25 @@ def selection_sort(numbers: list) -> list:
     return numbers
 
 
+# Sortowanie przez wstawianie
+def insertion_sort(numbers: list) -> list:
+    for j in range(len(numbers) -2, -1,-1):
+        x = numbers[j]
+        i = j+1
+        while i < len(numbers) and x > numbers[i]:
+            numbers[i-1] = numbers[i]
+            i += 1
+        numbers[i-1] = x
+    return numbers
+
+
 
 
 
 
 if __name__ == "__main__":
     numbers = rand_numbers(30)
-    show(numbers)
-    print(bubble_sort(numbers))
-    print(selection_sort(numbers))
+    print("Lista nieposortowana", numbers)
+    print("Sortowanie babelkowe: ", bubble_sort(numbers))
+    print("Sortowanie poprzez wybor: ", selection_sort(numbers))
+    print("Sortowanie przez wstawianie: ", insertion_sort(numbers))
